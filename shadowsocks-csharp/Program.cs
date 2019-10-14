@@ -180,7 +180,10 @@ namespace Shadowsocks
             Application.ApplicationExit -= Application_ApplicationExit;
             SystemEvents.PowerModeChanged -= SystemEvents_PowerModeChanged;
             Application.ThreadException -= Application_ThreadException;
+//销毁
             HotKeys.Destroy();
+
+       //主控制不为空时关闭 
             if (MainController != null)
             {
                 MainController.Stop();
