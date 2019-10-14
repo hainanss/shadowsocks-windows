@@ -99,7 +99,7 @@ namespace Shadowsocks
         
         
         ----------------------------------------------------------------------------------------
-            //方法CurrentDomain_UnhandledException 当前 域unhandle异常
+            //方法CurrentDomain_UnhandledException 当前未知handle域异常
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             if (Interlocked.Increment(ref exited) == 1)
@@ -115,7 +115,7 @@ namespace Shadowsocks
 
         
         -----------------------------------------------------------------------------------------
-           //方法Application_ThreadException 线程异常
+           //方法Application_ThreadException 程序线程异常
         private static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
         {
             if (Interlocked.Increment(ref exited) == 1)
@@ -132,7 +132,7 @@ namespace Shadowsocks
         
         
         -------------------------------------------------------------------------------
-        //方法 SystemEvents_PowerModeChanged 
+        //方法 SystemEvents_PowerModeChanged 系统电源模块事件变更
         
         private static void SystemEvents_PowerModeChanged(object sender, PowerModeChangedEventArgs e)
         {
