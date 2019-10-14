@@ -96,6 +96,10 @@ namespace Shadowsocks
         }
 
         private static int exited = 0;
+        
+        
+        ----------------------------------------------------------------------------------------
+            //方法CurrentDomain_UnhandledException 当前 域unhandle异常
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
             if (Interlocked.Increment(ref exited) == 1)
@@ -109,6 +113,9 @@ namespace Shadowsocks
             }
         }
 
+        
+        -----------------------------------------------------------------------------------------
+           //方法Application_ThreadException 线程异常
         private static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
         {
             if (Interlocked.Increment(ref exited) == 1)
@@ -122,6 +129,11 @@ namespace Shadowsocks
             }
         }
 
+        
+        
+        -------------------------------------------------------------------------------
+        //方法 SystemEvents_PowerModeChanged 
+        
         private static void SystemEvents_PowerModeChanged(object sender, PowerModeChangedEventArgs e)
         {
             switch (e.Mode)
@@ -156,6 +168,12 @@ namespace Shadowsocks
             }
         }
 
+        
+        
+        
+        -----------------------------------------------------------------------------------------------------
+        //方法Application_ApplicationExit 程序异常
+        
         private static void Application_ApplicationExit(object sender, EventArgs e)
         {
             // detach static event handlers
